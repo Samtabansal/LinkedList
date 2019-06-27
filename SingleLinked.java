@@ -1,13 +1,14 @@
 /*
-    Functions present in the class:-
+    Functions present in the class:- 
 
-    length()
     lastNode()
     printList()
+    ReverseList()
+    length()
     insertAtBegin()
     insertAtGiven()
     insertAtEnd()
-    deletestartNode()
+    deleteStartNode()
     deleteAtGiven()
     deleteLastNode()
     searchNode()
@@ -29,18 +30,32 @@ class SingleLinked {
     public static void main(String []z)
     {
         SingleLinked ob = new SingleLinked();
-        ob.insertAtBegin(1);
-        ob.insertAtGiven(7,2);
+        ob.insertAtEnd(1);
+        ob.insertAtEnd(2);
         ob.insertAtEnd(3);
-        ob.deleteStartNode();
-        ob.deleteAtGiven(2);
-        ob.deleteLastNode();
-        ob.searchNode(7);
-        System.out.println("Length : " + ob.length());
-        System.out.println("Last Node : " + ob.lastNode());
+        ob.insertAtEnd(4);
+        ob.insertAtEnd(5);
         ob.printList();
+        ob.ReverseList();
+        ob.printList();
+    }
+    
+    void ReverseList()
+    {
+        Node prev = null;
+        Node n = head;
+        Node next = null;
+        while(n != null)
+        {
+            next = n.next;
+            n.next = prev;
+            
+            prev = n;
+            n = next;
+        }
+        head = prev;
         
-    }  
+    }
     
     void printList()
     {
@@ -48,7 +63,7 @@ class SingleLinked {
         Node n = head;
         while(n!=null)
         {
-            System.out.println(n.data + "  ->  "+ n.next);
+            System.out.println(n.data +   "  ->  "+ n.next);
             n = n.next;
         }
         System.out.println();
